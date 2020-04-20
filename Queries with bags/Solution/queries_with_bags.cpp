@@ -1,5 +1,5 @@
 /// ILLUMINATI SEASON 6
-/// Queries with bags
+/// Queries with Bags
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -23,6 +23,7 @@ void union_set(ll a, ll b){
 }
 
 int main(){
+	FAST_IO
     ll n,q;
     cin>>n>>q;
     for(ll i=1;i<=n;i++)parent[i]=i;
