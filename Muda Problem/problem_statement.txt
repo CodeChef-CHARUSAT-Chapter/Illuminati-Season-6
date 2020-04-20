@@ -1,0 +1,27 @@
+Problem : - Can you solve the Muda dilema ?
+Problem code: - MUDA
+
+Dio has recently been watching too much Jojo's Bizzare Adventure anime. As a result of this he always speaks the word "Muda" when ending a sentence. His birthday is fast approaching and you as his best friend decides to gift him a string that contains at least one word "Muda". But unfortunately the string that you bought from the shop may not contain any such word. So you decide to change some characters to any other character so that the string contains at least one "Muda". Your task is to output the minimum numbers of operations that you need to perform such that the string contains at least one "Muda".
+
+Constraints: -
+1 <= T <= 10
+4 <= |S| <= 100000
+Each character of the string is either an upper-case character or a lower-case character.
+
+Input: -
+First line contains a single integer 'T', the number of testcases.
+Each test case contains a single line the string 'S'.
+
+
+Output: -
+For each test case, output the minimum number of operations required so that the string contains atleast one "Muda".
+
+Sample Test Case: -
+1
+afdMdda
+
+Output: -
+2
+
+
+
