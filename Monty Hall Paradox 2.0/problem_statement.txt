@@ -14,7 +14,7 @@ Note: - It's proven that you always write the probability in terms of P/Q.
 
 Constraints: -
 1 <= T <= 1000
-2 <= N <= 1e18
+3 <= N <= 1e18
 
 Substask: -
 Substask-1 :- Original Constraints
