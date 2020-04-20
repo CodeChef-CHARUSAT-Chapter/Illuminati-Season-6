@@ -28,13 +28,13 @@ For each test case print the probability of the
 car behind the door-1 and door-2.
 
 In terms of 4 space separated integers.
-p1 q1 p2 q1
+p1 q1 p2 q2
 
 p1/q1 -> Probability of car behind the door-1
-p2/q1 -> Probability of car behind the door-1
+p2/q2 -> Probability of car behind the door-2
 
 Sample Test Case: -
-2
+1
 2
 
 Output: -
