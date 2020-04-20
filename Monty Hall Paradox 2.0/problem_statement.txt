@@ -1,0 +1,41 @@
+Problem : - Monty Hall Paradox 2.0
+
+You are given an 'N' number of doors such that behind one door there is a car. There 
+is one magician who knows which door is having a car.
+
+Now your task is to choose any door at random. Note that there may be a car behind your 
+chosen door (door-1). Now the magician will open all the doors except two doors which you 
+have already chosen (door-1) and another door (door-2) which may or may not contain a car. 
+
+Now you have exactly two door's left. Your task is to find the probability of a car 
+behind the (door-1) and similarly car behind the (door-2).
+
+Note: - It's proven that you always write the probability in terms of P/Q.  
+
+Constraints: -
+1 <= T <= 1000
+2 <= N <= 1e18
+
+Substask: -
+Substask-1 :- Original Constraints
+
+Input: -
+First line contains a single integer 'T'.
+The Next T line contains an integer 'N'.
+
+Output: -
+For each test case print the probability of the
+car behind the door-1 and door-2.
+
+In terms of 4 space separated integers.
+p1 q1 p2 q2
+
+p1/q1 -> Probability of car behind the door-1
+p2/q2 -> Probability of car behind the door-2
+
+Sample Test Case: -
+1
+2
+
+Output: -
+1 2 1 2
