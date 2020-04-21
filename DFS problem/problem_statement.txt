@@ -1,7 +1,6 @@
 Problem Statement - Can Luffy become King Of Pirates ?
 Problem Code - NAKAPOWA
 
-
 Young Luffy is on a quest to become the King Of The Pirates. For that to happen he has choose 
 two comrades who will help him accomplish this goal. He has a group of N battle-hardened pirates 
 to choose from. All the N pirates can be represented as a hierarchy of rooted tree where pirate 1 
@@ -12,12 +11,10 @@ Luffy choose two comrades from the list of N pirates such that the attitude rati
 is minimum possible.
 
 Constraints: -
-1 <= N <= 200000
+2 <= N <= 200000
 1 <= A[i] <= 100000 for each valid i
 
-
 For any pair of pirates x and y such that 1 ≤ x < y ≤ N, at most one pair among (x, y) and (y, x) will appear in the input
-
 
 Input: -
 The first line of input contains N the number of pirates.
