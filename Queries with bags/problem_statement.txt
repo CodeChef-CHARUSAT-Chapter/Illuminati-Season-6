@@ -1,22 +1,28 @@
 Problem : - Queries with Bags
 
-You have given 'N' DSU problems number '1' to 'N' initially they all are kept in 
-a 'N' distinct bags each bag contain one DSU problem. Now you have few 'Q' queries
-to perform.
+There are 'N' bags and magic cards which manufactured by DSU company 
+daily. Each bag and card has assigned a number between 1 to N. Initially ith card
+is in the ith bag. Now manager wants to club some card together.
+Manager is really busy right now he needs your help to perform this task.
 
-There are 3 types of queries :
+You have 'Q' queries to perform.
 
-1. 1 A B
-DSU Problems with number A and B are merge into single bag if they belong to different bag.
+Each query can be among 3 types :
 
-2. 2 A B
-DSU problems with number, you need to check if they belong to same bag or not.
+Type-1. 1 A B
+Magic card with number A and B are merge into single bag if they belong to two 
+different bags.
+Its independent which bag to choose, our goal is to add both 
+the cards with numebr A and B in the same bags.
 
-3. 3
-This query use to check how many distinct bags we have.
+Type-2. 2 A B
+You need to check if two magic cards with number A and B belongs to same bag 
+or not.
+
+Type-3. 3
+This query use to check how many distinct bags remained till now.
 
 Constraints: -
-1 <= T <= 10
 1 <= N,Q <= 1e5
 1 <= A,B <= N (A!=B)
 
@@ -30,13 +36,13 @@ Input: -
   The description of T test cases follows.
 * The first line of each test case contain two space separated integer N and Q.
 * Next Q line for each test case contain 3 space integer for Type-1 and Type-2 query
-  and 1 integer for Type-3 query as per the in problem description.
+  and single integer for Type-3 query as shown in problem description.
 
 
 Output: -
-* For Type-2 query print "YES" if they belong to same group else print "NO" without
-  quotes.
-* For Type-3 query print a single integer that denotes no of bags till now.
+* For Type-2 query print "YES" if both magic cards belong to same bag else 
+  print "NO" without quotes.
+* For Type-3 query print a single integer that denotes no of bags remained till now.
 
 Sample Test Case: -
 3 8
