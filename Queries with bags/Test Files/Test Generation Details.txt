@@ -1,0 +1,87 @@
+Substask - 1
+
+	Test File 1
+		N = 100
+		Q = 1000
+
+	Test File 2
+		N = 500
+		Q = 1000
+
+		With 0.8 probabilty query of type-1.
+
+	Test File 3
+		N = 500
+		Q = 1000
+
+		With 0.6 probabilty query of type-1.
+	
+	Test File 4
+		N = 500
+		Q = 1000
+
+		With 0.4 probabilty query of type-1.
+
+	Test File 5
+		N = 1000
+		Q = 1000
+
+		With 0.9 probabilty query of type-1.
+
+	Test File 6
+		N = 1000
+		Q = 1000
+
+		With 0.8 probabilty query of type-1.
+	
+	Test File 7
+		N = 1000
+		Q = 1000
+
+		With 1 probabilty query of type-1.
+
+Substask - 2
+
+	Test File 8
+		N = 5000
+		Q = 1e5
+
+	Test File 9
+		N = 20000
+		Q = 1e5
+
+		With 0.9 probabilty query of type-1.
+
+	Test File 10
+		N = 50000
+		Q = 1e5
+
+		With 0.9 probabilty query of type-1.
+	
+	Test File 11
+		N = 50000
+		Q = 1e5
+
+		With 0.4 probabilty query of type-1.
+
+	Test File 12
+		N = 1e5
+		Q = 1e5
+		
+		With 0.9 probabilty query of type-1.
+
+	Test File 13
+		N = 1e5
+		Q = 1e5
+
+		With 0.8 probabilty query of type-1.
+	
+	Test File 14
+		N = 1e5
+		Q = 1e5
+
+
+	
+
+
+
