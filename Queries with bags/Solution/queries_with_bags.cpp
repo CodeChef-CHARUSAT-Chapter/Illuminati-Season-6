@@ -51,14 +51,12 @@ int main(){
             else queries.push_back("NO");
         }
         else{
-            char x = no_of_bags+48;
+    		cout<<no_of_bags<<endl;
             string s = "";
             s+=x;
             queries.push_back(s);
         }
     }
-    for(ll i=0;i<queries.size();i++){
-        cout<<queries[i]<<endl;
-    }
+    
 }
 
