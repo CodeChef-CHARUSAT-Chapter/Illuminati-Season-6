@@ -1,4 +1,4 @@
-**Problem : Rotating Planes (CHALLENGE)**
+********** Problem : Rotating Planes (CHALLENGE) **********
 
 You have given N 2D planes. Each plane has assigned number betweem 1 to N (both inclusive). Each plane has an order of N*N.
 Planes are organised as a stack such that plane with number 1 is on the top of the stack also each valid cell of the 
@@ -27,7 +27,7 @@ Your task is to maximize this score. Or we can say that minimize the error.
 **************************
 Constraints: - 
 1 <= N <= 100
-1 <= R <= 1e18
+1 <= R <= 1e9
 1 <= STACK[k][i][j] <= 1e9
 
 **************************
@@ -43,79 +43,44 @@ N lines contain N space separeted integers.
 
 **************************
 
-Theere are total 5 test files files.
+There are total 5 test files files.
 
-*******
+Rotation count array for each plane. R[1...N]
 
-**Test File 1.**
-N = 10
+randomTimes => Random(LB,UB)
+randomTimes its a random integer which will remain same thorughout all test file your task is to crack this randomTimes variable. This will help to decide the rotation count of each plane. LB and UB is totally unknown even we don't know ! LOL !
+
+Now Rotation array is initialization process :- 
+
+for (ll i=0; i<=N ;i++){
+   for(ll j=0;j<=randomTimes;j++){
+   	R[i] = Random(1,1e9);
+   }
+}
+
+Test File 1.
+
+N = 7
 1 <= STACK[k][i][j] <= 20
-R = 0
 
-*******
 
-**Test File 2.**
+Test File 2.
+
+N = 29
+1 <= STACK[k][i][j] <= 1e9
+
+
+Test File 3.
+
+N = 39
+1 <= STACK[k][i][j] <= 1e9
+
+Test File 4.
+
+N = 59
+1 <= STACK[k][i][j] <= 1e9
+
+Test File 5.
+
 N = 100
 1 <= STACK[k][i][j] <= 1e9
-Rotation count array for each plane. R[1...N]
-
-randomTimes => Random(1,10)
-randomTimes its a random integer which will remain same thorughout the test file your task is to crack this randomTimes
-variable. This will help to decide the rotation count of each plane.
-
-for (ll i=0; i<=N ;i++){
-   for(ll j=0;j<=randomTimes;j++){
-   	R[i] = Random(1,1e18);
-   }
-}
-
-*******
-
-**Test File 3.**
-N = 100
-1 <= STACK[k][i][j] <= 1e9
-Rotation count array for each plane. R[1...N]
-
-randomTimes => Random(1,20)
-randomTimes its a random integer which will remain same thorughout the test file your task is to crack this randomTimes
-variable. This will help to decide the rotation count of each plane.
-
-for (ll i=0; i<=N ;i++){
-   for(ll j=0;j<=randomTimes;j++){
-   	R[i] = Random(1,1e18);
-   }
-}
-
-*******
-
-**Test File 4.**
-N = 100
-1 <= STACK[k][i][j] <= 1e9
-Rotation count array for each plane. R[1...N]
-
-randomTimes => Random(1,30)
-randomTimes its a random integer which will remain same thorughout the test file your task is to crack this randomTimes
-variable. This will help to decide the rotation count of each plane.
-
-for (ll i=0; i<=N ;i++){
-   for(ll j=0;j<=randomTimes;j++){
-   	R[i] = Random(1,1e18);
-   }
-}
-
-*******
-
-**Test File 5.**
-N = 100
-1 <= STACK[k][i][j] <= 1e9
-Rotation count array for each plane. R[1...N]
-
-randomTimes => Random(1,50)
-randomTimes its a random integer which will remain same thorughout the test file your task is to crack this randomTimes
-variable. This will help to decide the rotation count of each plane.
-
-for (ll i=0; i<=N ;i++){
-   for(ll j=0;j<=randomTimes;j++){
-   	R[i] = Random(1,1e18);
-   }
-}

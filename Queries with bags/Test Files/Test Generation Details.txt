@@ -1,87 +1,130 @@
-Substask - 1
+*************** Subtask - 1 ***************
 
 	Test File 1
+		N = 50
+		Q = 1000
+		Queries at random.
+
+	Test File 2
 		N = 100
 		Q = 1000
 
-	Test File 2
-		N = 500
-		Q = 1000
-
-		With 0.8 probabilty query of type-1.
+		With 0.7 probability query of type-1.
 
 	Test File 3
 		N = 500
 		Q = 1000
 
-		With 0.6 probabilty query of type-1.
+		With 0.7 probability query of type-1.
 	
 	Test File 4
 		N = 500
 		Q = 1000
 
-		With 0.4 probabilty query of type-1.
+		With 0.8 probability query of type-1.
 
 	Test File 5
 		N = 1000
 		Q = 1000
 
-		With 0.9 probabilty query of type-1.
+		With 0.7 probability query of type-1.
 
 	Test File 6
 		N = 1000
 		Q = 1000
 
-		With 0.8 probabilty query of type-1.
+		With 0.7 probability query of type-1.
 	
 	Test File 7
 		N = 1000
 		Q = 1000
 
-		With 1 probabilty query of type-1.
-
-Substask - 2
+		With 1 probability query of type-2 and type-3.
 
 	Test File 8
-		N = 5000
-		Q = 1e5
+		N = 1000
+		Q = 1000
+
+		With 0.6 probability query of type-2.
+		With 0.3 probability query of type-1.
+		With 0.1 probability query of type-3.
 
 	Test File 9
+		N = 1000
+		Q = 1000
+
+		With 0.5 probability query of type-1.
+
+	Test File 10
+		N = 1000
+		Q = 1000
+
+		With 0.7 probability query of type-1.
+		With 0.2 probability query of type-2.
+		With 0.1 probability query of type-3.
+
+
+*************** Subtask - 2 ***************
+
+	Test File 11
+		N = 8000
+		Q = 1e5
+
+		All queries at random.
+
+	Test File 12
 		N = 20000
 		Q = 1e5
 
-		With 0.9 probabilty query of type-1.
+		With 0.7 probability query of type-1.
 
-	Test File 10
+	Test File 13
 		N = 50000
 		Q = 1e5
 
-		With 0.9 probabilty query of type-1.
-	
-	Test File 11
-		N = 50000
-		Q = 1e5
+		With 0.7 probabilty query of type-1.
 
-		With 0.4 probabilty query of type-1.
-
-	Test File 12
+	Test File 15
 		N = 1e5
 		Q = 1e5
 		
-		With 0.9 probabilty query of type-1.
-
-	Test File 13
-		N = 1e5
-		Q = 1e5
-
 		With 0.8 probabilty query of type-1.
-	
-	Test File 14
+
+	Test File 16
 		N = 1e5
 		Q = 1e5
 
-
+		With 0.7 probability query of type-1.
 	
+	Test File 17
+		N = 1e5
+		Q = 1e5
+
+		Everything Random
+
+	Test File 18
+		N = 1e5
+		Q = 1e5
+
+		With 0.7 probability query of type-2.
+
+	Test File 19
+		N = 1e5
+		Q = 1e5
+
+		With 0.7 probability query of (type-2) - (type-3).
+
+	Test File 20
+		N = 1e5
+		Q = 1e5
+
+		With 0.5 probability query of type-1.
 
 
+Included in both the substask.
 
+Test File 21
+(Boundary Test Cases Files)
+
+Test File 22
+(Boundary Test Cases Files)
