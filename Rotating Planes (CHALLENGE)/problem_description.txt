@@ -19,10 +19,11 @@ Note : Before calculating values on STACK[0] planes you need to perform rotation
 The direction of the kth plane is depend on the sum of all values of that plane. If sum is even its direction is Clockwise (CW) else
 Anticlockwise (ACW). SUM[k] = sigma(for each valid i,j. ( 1 <= i,j <= N ) STACK[k][i][j]).  
 
-Your task is to find the STACK[0] plane. And print N*N matrix that's it. Your score is calculated as the
-Actual sum of STACK[0] plane - error in each valid index STACK[0][i][j].
+Your task is to find the STACK[0] plane. And print N*N matrix that's it. 
+Your score is calculated as the sum of total error with respect to actual STACK[0].
 
-Your task is to maximize this score. Or we can say that minimize the error.
+SCORE = sigma( 1 <= i,j <= N abs(Actual value of STACK[0][i][j] - your given STACK[0][i][j])).
+Your task is to MINIMIZE the score.
 
 **************************
 Constraints: - 
@@ -48,7 +49,8 @@ There are total 5 test files files.
 Rotation count array for each plane. R[1...N]
 
 randomTimes => Random(LB,UB)
-randomTimes its a random integer which will remain same thorughout all test file your task is to crack this randomTimes variable. This will help to decide the rotation count of each plane. LB and UB is totally unknown even we don't know ! LOL !
+randomTimes its a random integer which will remain same thorughout all test file your task is to crack this randomTimes variable.
+This will help you to decide the rotation count of each plane. LB and UB is totally unknown.
 
 Now Rotation array is initialization process :- 
 
