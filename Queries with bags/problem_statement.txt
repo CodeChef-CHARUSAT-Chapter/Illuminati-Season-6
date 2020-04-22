@@ -23,7 +23,8 @@ Type-3. 3
 This query use to check how many distinct bags remained till now.
 
 Constraints: -
-1 <= N,Q <= 1e5
+2 <= N <= 1e5
+1 <= Q <= 1e5
 1 <= A,B <= N (A!=B)
 
 Substask: -

@@ -11,6 +11,26 @@ const ll MAX = 1e5+1;
 vector<ll> parent(MAX);
 vector<ll> unionBySize(MAX,1);
 
+
+ll randomRange(ll lower,ll upper){
+    ll num = (rand() %(upper - lower + 1)) + lower;
+    return num;
+}
+
+char randomChoice(){
+    double r = ((double) rand() / (RAND_MAX));
+    if(r<=0.9){
+        return 2;
+    }
+    else{
+        ll x = randomRange(1,3);
+        while(x==2)x = randomRange(1,3);
+        return x;
+    }
+
+    /*return randomRange(2,3);*/
+}
+
 ll find_set(ll v){
     if(parent[v]==v)return v;
     return parent[v] = find_set(parent[v]);
@@ -25,18 +45,24 @@ void union_set(ll a, ll b){
 int main(){
     FAST_IO
     ofstream fout,fin;
-    fin.open("Input_1.txt");
-    fout.open("Output_1.txt");
-    ll n,q;
-    cin>>n>>q;
+    fin.open("Input_File_19.txt");
+    fout.open("Output_File_19.txt");
+    ll n=100000,q=100000;
+    fin<<n<<" "<<q<<endl;
     for(ll i=1;i<=n;i++)parent[i]=i;
     ll a, b;
     ll no_of_bags = n;
     while(q--){
-        ll query_type;
-        cin>>query_type;
+        ll query_type = randomChoice();
+        //cout<<query_type<<endl;
+        fin<<query_type;
         if(query_type==1){
-            cin>>a>>b;
+            a = randomRange(1,n);
+            b = randomRange(1,n);
+            while(a==b){
+                b = randomRange(1,n);
+            }
+            fin<<" "<<a<<" "<<b<<endl;
             a = find_set(a);
             b = find_set(b);
             if(a!=b){
@@ -45,15 +71,23 @@ int main(){
             }
         }
         else if(query_type==2){
-            cin>>a>>b;
+            a = randomRange(1,n);
+            b = randomRange(1,n);
+            while(a==b){
+                b = randomRange(1,n);
+            }
+            fin<<" "<<a<<" "<<b<<endl;
             a = find_set(a);
             b = find_set(b);
-            if(a==b) cout<<"YES"<<endl;
-            else cout<<"NO"<<endl;
+            if(a==b) fout<<"YES"<<endl;
+            else fout<<"NO"<<endl;
         }
         else{
-            cout<<no_of_bags<<endl;
+            fin<<endl;
+            fout<<no_of_bags<<endl;
         }
     }
+    fin.close();
+    fout.close();
 }
 

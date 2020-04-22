@@ -29,6 +29,7 @@ int main(){
     for(ll i=1;i<=n;i++)parent[i]=i;
     ll a, b;
     ll no_of_bags = n;
+    vector<string> queries;
     while(q--){
         ll query_type;
         cin>>query_type;
@@ -45,12 +46,19 @@ int main(){
             cin>>a>>b;
             a = find_set(a);
             b = find_set(b);
-            if(a==b) cout<<"YES"<<endl;
-            else cout<<"NO"<<endl;
+
+            if(a==b) queries.push_back("YES");
+            else queries.push_back("NO");
         }
         else{
-            cout<<no_of_bags<<endl;
+            char x = no_of_bags+48;
+            string s = "";
+            s+=x;
+            queries.push_back(s);
         }
+    }
+    for(ll i=0;i<queries.size();i++){
+        cout<<queries[i]<<endl;
     }
 }
 
