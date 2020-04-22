@@ -17,6 +17,7 @@ int main(){
     fin.open("Input_File_1.txt");
     fout.open("Output_File_1.txt");
     ll t;
+    fin<<100000<<endl;
     t = 10000;
     while(t--){
         ll n = randRange(3,100);
