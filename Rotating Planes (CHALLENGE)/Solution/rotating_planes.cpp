@@ -40,7 +40,17 @@ int main(){
         rotation_count[i] = randomRange(0,3);
     }
 
+    /*for(ll i=1;i<=n;i++)cout<<rotation_direction[i]<<" ";
+    cout<<endl;
+    for(ll i=1;i<=n;i++)cout<<rotation_count[i]<<" ";
+    cout<<endl;
+    cout<<endl;*/
+
+
     for(ll i=1;i<=n;i++){
+
+        //cout<<"********************"<<endl;
+
         ll t = rotation_count[i];
         ll temp[n+1][n+1];
 
@@ -51,7 +61,8 @@ int main(){
         }
 
         if(rotation_direction[i]%2==0){
-            if(t==3){
+
+            for(ll r1=1;r1<=t;r1++){
                 for(ll j=1;j<=n;j++){
                     for(ll k=n;k>=1;k--){
                         temp[j][n-k+1] = plane_stack[i][k][j];
@@ -62,34 +73,19 @@ int main(){
                         plane_stack[i][j][k] = temp[j][k];
                     }
                 }
-            }
-            if(t>=2){
-                for(ll j=1;j<=n;j++){
-                    for(ll k=n;k>=1;k--){
-                        temp[j][n-k+1] = plane_stack[i][k][j];
-                    }
-                }
                 for(ll j=1;j<=n;j++){
                     for(ll k=1;k<=n;k++){
-                        plane_stack[i][j][k] = temp[j][k];
+                        cout<<plane_stack[i][j][k]<<" ";
                     }
+                    cout<<endl;
                 }
+                cout<<endl;
             }
-            if(t>=1){
-                for(ll j=1;j<=n;j++){
-                    for(ll k=n;k>=1;k--){
-                        temp[j][n-k+1] = plane_stack[i][k][j];
-                    }
-                }
-                for(ll j=1;j<=n;j++){
-                    for(ll k=1;k<=n;k++){
-                        plane_stack[i][j][k] = temp[j][k];
-                    }
-                }
-            }
-        }
-        else{
-            if(t==3){
+
+
+        }else{
+
+            for(ll r1=1;r1<=t;r1++){
                 for(ll j=n;j>=1;j--){
                     for(ll k=1;k<=n;k++){
                         temp[n-j+1][k] = plane_stack[i][k][j];
@@ -100,33 +96,30 @@ int main(){
                         plane_stack[i][j][k] = temp[j][k];
                     }
                 }
-            }
-            if(t>=2){
-                for(ll j=n;j>=1;j--){
-                    for(ll k=1;k<=n;k++){
-                        temp[n-j+1][k] = plane_stack[i][k][j];
-                    }
-                }
                 for(ll j=1;j<=n;j++){
                     for(ll k=1;k<=n;k++){
-                        plane_stack[i][j][k] = temp[j][k];
+                        cout<<plane_stack[i][j][k]<<" ";
                     }
+                    cout<<endl;
                 }
+                cout<<endl;
             }
-            if(t>=1){
-                for(ll j=n;j>=1;j--){
-                    for(ll k=1;k<=n;k++){
-                        temp[n-j+1][k] = plane_stack[i][k][j];
-                    }
-                }
-                for(ll j=1;j<=n;j++){
-                    for(ll k=1;k<=n;k++){
-                        plane_stack[i][j][k] = temp[j][k];
-                    }
-                }
-            }
+
+
         }
     }
+
+    /*for(ll i=1;i<=n;i++){
+        for(ll j=1;j<=n;j++){
+            for(ll k=1;k<=n;k++){
+                cout<<plane_stack[i][j][k]<<" ";
+            }
+            cout<<endl;
+        }
+        cout<<endl;
+    }*/
+
+
 
     for(ll i=1;i<=n;i++){
         for(ll j=1;j<=n;j++){
