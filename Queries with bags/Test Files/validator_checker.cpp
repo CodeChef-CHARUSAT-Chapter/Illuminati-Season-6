@@ -9,6 +9,46 @@
 using namespace std;
 typedef long long int ll;
 
+long long readInt2(long long l,long long r){
+    long long x=0;
+    int cnt=0;
+    int fi=-1;
+    bool is_neg=false;
+    while(true){
+        char g=getchar();
+        if(g=='-'){
+            assert(fi==-1);
+            is_neg=true;
+            continue;
+        }
+        if('0'<=g && g<='9'){
+            x*=10;
+            x+=g-'0';
+            if(cnt==0){
+                fi=g-'0';
+            }
+            cnt++;
+            assert(fi!=0 || cnt==1);
+            assert(fi!=0 || is_neg==false);
+
+            assert(!(cnt>19 || ( cnt==19 && fi>1) ));
+        } else if(g==' '){
+            if(is_neg){
+                x= -x;
+            }
+            assert(l<=x && x<=r);
+            return x;
+        } else if(g=='\n'){
+            if(is_neg){
+                x= -x;
+            }
+            assert(l<=x && x<=r);
+            return x;
+        } else {
+            assert(false);
+        }
+    }
+}
 long long readInt(long long l,long long r,char endd){
     long long x=0;
     int cnt=0;
@@ -78,7 +118,7 @@ int main()
       ll q = readIntLn(1,100000); // Ensures that an integer in the range [1, 1000000] is inputted, and that there is a space (Sp) right after that.
 
       while(q--){
-        ll choice = readIntSp(1,3);
+        ll choice = readInt2(1,3);
         if(choice==1){
             ll a = readIntSp(1,n);
             ll b = readIntLn(1,n);
@@ -86,9 +126,6 @@ int main()
         else if(choice==2){
             ll a = readIntSp(1,n);
             ll b = readIntLn(1,n);
-        }
-        else{
-        	
         }
       }
 
