@@ -1,10 +1,14 @@
+/// @author mann2108
 /// ILLUMINATI SEASON 6
-/// Queries with Bags (Brute force approach using array
+/// Queries with Bags (Brute Force using Array)
 
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
     ll n, q;
     cin>>n>>q;
     ll arr[n+1] = {};
