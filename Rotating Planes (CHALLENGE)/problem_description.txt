@@ -27,18 +27,21 @@ Your task is to MINIMIZE the score.
 
 **************************
 Constraints: - 
+
 1 <= N <= 100
-1 <= R <= 1e9
-1 <= STACK[k][i][j] <= 1e9
+1 <= R <= 100000
+1 <= STACK[k][i][j] <= 1000
 
 **************************
 Input: -
+
 First line contain a single integer 'N'.
 Then next N*N line contains N space separeted integers.
 (Each set of N lines from the top is denoted a plane from top to bottom)
 
 **************************
 Output: -
+
 N lines contain N space separeted integers.
 (Denotes the plane STACK[0] (N*N) )
 
@@ -48,78 +51,42 @@ There are total 5 test files files.
 
 Rotation count array for each plane. R[1...N]
 
-randomTimes => Random(LB,UB)
-randomTimes its a random integer which will remain same thorughout all test file your task is to crack this randomTimes variable.
-This will help you to decide the rotation count of each plane. LB and UB is totally unknown.
+R[i] = Randome(1,1e5)
+1 <= STACK[k][i][j] <= 1e3
 
-Now Rotation array is initialization process :- 
-
-for (ll i=1; i<=N ;i++){
-   for(ll j=1;j<=randomTimes;j++){
-   	R[i] = Random(1,1e9);
-   }
-}
-
-
-Test File 1.
-
+Test File 1
 N = 7
-1 <= STACK[k][i][j] <= 1e9
 
-
-Test File 2.
-
+Test File 2
 N = 19
-1 <= STACK[k][i][j] <= 1e9
 
-
-Test File 3.
-
+Test File 3
 N = 29
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 4.
-
+Test File 4
 N = 37
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 5.
-
+Test File 5
 N = 47
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 6.
-
+Test File 6
 N = 59
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 7.
-
+Test File 7
 N = 67
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 8.
-
+Test File 8
 N = 79
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 9.
-
+Test File 9
 N = 89
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 10.
-
+Test File 10
 N = 97
-1 <= STACK[k][i][j] <= 1e9
 
-Test File 11.
-
+Test File 11
 N = 100
-1 <= STACK[k][i][j] <= 1e9
 
 Test File 12.
-
 N = 1
-1 <= STACK[k][i][j] <= 1e9
 

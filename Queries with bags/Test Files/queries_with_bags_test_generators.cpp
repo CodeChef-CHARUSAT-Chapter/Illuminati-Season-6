@@ -17,7 +17,7 @@ ll randomRange(ll lower,ll upper){
     return num;
 }
 
-char randomChoice(){
+ll randomChoice(){
     double r = ((double) rand() / (RAND_MAX));
     if(r<=0.9){
         return 2;
