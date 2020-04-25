@@ -1,0 +1,43 @@
+<p>You are given a very hard mathematical problem that challenges the human imagination. We can imagine 1D, 2D, and 3D easily, but things get more interesting when we encounter dimensions greater than three. You need to solve this <b>M</b> dimensional challenge mathematically where you will be given <b>N</b> points.</p>
+<p>Each point is denoted by a tuple <b>(A<sub>1</sub>, A<sub>2</sub>, ... , A<sub>M</sub>)</b> denoting the coordinates of the point in the <b>M</b> dimensional space. All the points are connected together to create a Hamiltonian cycle. </p>
+
+<p>Hamiltonian Path in an un-directed graph is a path that visits each vertex exactly once. A Hamiltonian cycle (or Hamiltonian circuit) is a Hamiltonian Path such that there is an edge (in the graph) from the last vertex to the first vertex of the Hamiltonian Path.</p>
+
+<p>Your task is to determine if number of edges of this graph formed and the number of edges of an octagon are co-prime.</p>
+
+<h3>Input</h3>
+<ul>
+<li>The first line of the input contains a single integer <b>T</b> denoting the number of test cases. The description of <b>T</b> test cases follows.</li>
+<li>The first line of each test case contains two space-separated integers <b>N</b> and <b>M</b> denoting number of points and the dimensions of the plane the point lies in respectively.</li>
+<li>The following <b>N</b> lines contain space-separated integers A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ... , A<sub>M</sub> denoting the coordinates of the point in the <b>M</b> dimensional space </li>
+</ul>
+
+<h3>Output</h3>
+<ul>
+<li>For each test case, output a single line containing "YES" if the number of edges of this graph formed and the number of edges of an octagon are co-prime, otherwise output "NO" (without qoutes).</li>
+</ul>
+
+<h3>Constraints</h3>
+<p>Should contain all the constraints on the input data that you may have. Format it like:</p>
+<ul>
+<li><b>1</b> ≤ <b>T</b> ≤ <b>10</b></li>
+<li><b>3</b> ≤ <b>N</b> ≤ <b>100</b></li>
+<li><b>1</b> ≤ <b>M</b> ≤ <b>10</b></li>
+<li><b>-1000</b> ≤ <b>A<sub>i</sub></b> ≤ <b>1000</b></li>
+</ul>
+
+<h3>Example</h3>
+<pre><b>Input:</b>
+1
+4 2
+0 0
+1 0
+1 1
+0 1
+
+<b>Output:</b>
+NO
+</pre>
+
+<h3>Explanation</h3>
+<p>One of the Hamiltonian cycle that can be formed by connecting the (0,0) -> (1,0) -> (1,1) -> (0,1) is a square, so number of edges are 4,and hence it is not co-prime with the number of edges of octagon</p>
