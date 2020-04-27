@@ -11,8 +11,8 @@ Luffy choose two comrades from the list of N pirates such that the attitude rati
 is minimum possible.
 
 Constraints: -
-2 <= N <= 200000
-1 <= A[i] <= 100000 for each valid i
+2 <= N <= 100000
+1 <= A[i] <= 1000000000 for each valid i
 
 For any pair of pirates x and y such that 1 ≤ x < y ≤ N, at most one pair among (x, y) and (y, x) will appear in the input
 
