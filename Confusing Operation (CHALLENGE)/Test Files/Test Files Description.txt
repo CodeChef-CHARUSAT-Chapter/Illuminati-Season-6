@@ -1,0 +1,23 @@
+1 <= a[i] <= 100
+
+**********************
+
+Test_File_1
+N=2
+
+Test_File_2
+N=4
+
+**********************
+
+Test_File_3
+N= 50
+
+Test_File_4
+N=100
+
+Test_File_5
+N=300
+
+Test_File_6
+N=500

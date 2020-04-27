@@ -1,6 +1,0 @@
-5
-ROW 1
-ROW 3
-COL 1
-ROW 2
-ROW 1

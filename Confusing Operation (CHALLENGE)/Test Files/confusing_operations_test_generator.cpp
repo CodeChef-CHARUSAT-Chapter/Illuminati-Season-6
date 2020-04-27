@@ -27,8 +27,8 @@ ll randomChoice(){
 
 int main(){
     ofstream fin;
-    fin.open("input_N_2.txt");
-    ll n=10;
+    fin.open("input_file_6.txt");
+    ll n=500;
     fin<<n<<endl;
 
     vector<vector<ll> > MAT1,MAT2;
@@ -37,7 +37,7 @@ int main(){
     for(ll i=0;i<n;i++){
         vector<ll> row;
         for(ll j=0;j<n;j++){
-            inputs = randomRange(1,9);
+            inputs = randomRange(1,100);
             if(j!=n-1)
                 fin<<inputs<<" ";
             else
@@ -49,15 +49,15 @@ int main(){
         MAT2.pb(row);
     }
 
-    for(ll k=0;k<n*n;k++){
+    for(ll k=0;k<(n*n*n);k++){
         ll i1 = randomRange(0,n-1);
         ll j1 = randomRange(0,n-1);
         ll i2 = randomRange(0,n-1);
         ll j2 = randomRange(0,n-1);
-        cout<<"******"<<endl;
-        cout<<MAT2[i1][j1]<<" "<<MAT2[i2][j2]<<endl;
-        swap(MAT2[i1][j1],MAT2[i2][j2]);
-        cout<<MAT2[i1][j1]<<" "<<MAT2[i2][j2]<<endl;
+        ll x = MAT1[i1][j1];
+        ll y = MAT2[i2][j2];
+        MAT2[i1][j1]=y;
+        MAT2[i2][j2]=x;
     }
 
     for(ll i=0;i<n;i++){
@@ -69,5 +69,5 @@ int main(){
         }
         fin<<endl;
     }
-
+    fin.close();
 }

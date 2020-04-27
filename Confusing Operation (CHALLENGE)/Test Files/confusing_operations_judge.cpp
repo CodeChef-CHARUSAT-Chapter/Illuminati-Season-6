@@ -1,49 +1,47 @@
+/// Custom judge for confusion operations
+
 #include "spoj.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
 typedef int ll;
+
 ll n,x,sum1=0;
-
-string get_string_from_input(FILE *input, int max_length){
-    char str[max_length + 1];
-    char ch;
-    // omit all white spaces before the string
-    do {
-        fscanf(input, "%c", &ch);
-    } while (isspace(ch));
-
-    int i = 0;
-    do {
-        str[i++] = ch;
-    } while (fscanf(input, "%c", &ch) == 1 && !isspace(ch));
-    str[i] = '\0';
-
-    return string(str);
+ll MAT1[(ll)1e3][(ll)1e3];
+ll MAT2[(ll)1e3][(ll)1e3];
+string get_string_from_input(FILE *input){
+    char c;
+    string s = "";
+    fscanf(spoj_t_out," %c",&c);
+    s+=c;
+    while(true){
+        fscanf(spoj_t_out,"%c",&c);
+        if(isspace(c))break;
+        s+=c;
+    }
+    return s;
 }
 
-int main()
-{
-	spoj_init();
-	fscanf(spoj_p_in, "%d", &n);
+int main(){
+    spoj_init();
+    fscanf(spoj_p_in, "%d", &n);
 
 
-	ll MAT1[n][n];
-    ll MAT2[n][n];
 
-	for(ll i=0;i<n;i++){
+    for(ll i=0;i<n;i++){
         for(ll j=0;j<n;j++){
             fscanf(spoj_p_in, "%d", &x);
             MAT1[i][j]=x;
         }
-	}
+    }
 
-	for(ll i=0;i<n;i++){
+    for(ll i=0;i<n;i++){
         for(ll j=0;j<n;j++){
             fscanf(spoj_p_in, "%d", &x);
             MAT2[i][j]=x;
         }
-	}
+    }
 
     ll k;
 
@@ -51,10 +49,34 @@ int main()
     fprintf(spoj_p_info,"%d\n",k);
 
     for(ll i=0;i<k;i++){
-        fprintf(spoj_p_info,"%d\n",i);
-        string s=get_string_from_input(spoj_p_in,3);
+        string s=get_string_from_input(spoj_p_in);
         ll index;
-        fscanf(spoj_t_out,"%d",&index);
+
+        if(s=="ROW"){
+            fscanf(spoj_t_out,"%d",&index);
+            fprintf(spoj_p_info,"%s %d\n",s.c_str(),index);
+
+            ll first_element = MAT1[index][0];
+            for(ll j=0;j<n-1;j++){
+                MAT1[index][j] = MAT1[index][j+1];
+            }
+            MAT1[index][n-1]=first_element;
+
+        }
+        else if(s=="COL"){
+            fscanf(spoj_t_out,"%d",&index);
+            fprintf(spoj_p_info,"%s %d\n",s.c_str(),index);
+
+            ll first_element = MAT1[0][index];
+            for(ll j=0;j<n-1;j++){
+                MAT1[j][index] = MAT1[j+1][index];
+            }
+            MAT1[n-1][index]=first_element;
+
+        }
+        else{
+            fprintf(spoj_p_info,"%s %d\n","ERROR_INVALID_STRING\n",index);
+        }
     }
 
     for(ll i=0;i<n;i++){
@@ -63,6 +85,8 @@ int main()
         }
     }
 
-	fprintf(spoj_score,"%d\n", sum1);
-	return SPOJ_RV_POSITIVE;
+    sum1+=(n*k);
+
+    fprintf(spoj_score,"%d\n", sum1);
+    return SPOJ_RV_POSITIVE;
 }

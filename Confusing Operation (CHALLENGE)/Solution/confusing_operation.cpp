@@ -39,26 +39,26 @@ int main(){
 
     for(ll i=0;i<n;i++){
 
-        vector<ll> temp_row;
+        vector<ll> temp_col;
 
         for(ll j=0;j<n;j++){
-            temp_row.pb(MAT1[i][j]);
+            temp_col.pb(MAT1[j][i]);
         }
 
         for(ll rotation=0;rotation<n;rotation++){
             ll cost = 0;
             for(ll j=0;j<n;j++){
-                cost+=abs(temp_row[j]-MAT2[i][j]);
+                cost+=abs(temp_col[j]-MAT2[j][i]);
             }
             if(cost<moves[i].second){
                 moves[i].second = cost;
                 moves[i].first = rotation;
             }
-            ll temp_first_value = temp_row[0];
+            ll temp_first_value = temp_col[0];
             for(ll j=0;j<n-1;j++){
-                temp_row[j]=temp_row[j+1];
+                temp_col[j]=temp_col[j+1];
             }
-            temp_row[n-1]=temp_first_value;
+            temp_col[n-1]=temp_first_value;
         }
 
     }
@@ -72,8 +72,8 @@ int main(){
     cout<<moves_count<<endl;
 
     for(ll i=0;i<n;i++){
-        for(ll j=0;j<moves[i].first/2;j++){
-            cout<<"R"<<" "<<i+1<<endl;
+        for(ll j=0;j<moves[i].first;j++){
+            cout<<"COL"<<" "<<i+1<<" \n";
         }
     }
 }
