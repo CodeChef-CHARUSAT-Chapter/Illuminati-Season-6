@@ -1,0 +1,10 @@
+0 222 70 128 rectangle
+214 70 256 0 rectangle
+15 493 91 457 rectangle
+112 313 302 295 rectangle
+57 193 447 3 rectangle
+226 44 250 16 rectangle
+51 88 127 12 square
+0 164 256 138 rectangle
+12 392 202 324 rectangle
+10 135 38 81 rectangle

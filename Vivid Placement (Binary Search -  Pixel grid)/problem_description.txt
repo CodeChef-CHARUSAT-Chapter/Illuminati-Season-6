@@ -1,0 +1,104 @@
+<p><b>This is an interactive problem.</b></p>
+<p><b>NOTE:</b> Don't forget to flush your output after each print statement</p>
+
+<p>In C++:  <code> fflush(stdout);</code></p>
+<p>In Python:  <code> print("your output", flush=True)</code></p>
+<p>In Java:  <code>System.out.flush();</code></p>
+
+<p>A pixel is usually represented in the RGB form representing the hexadecimal values of the amount of the color red, green, and blue respectively.</p>
+
+<p>You have been placed in a multi-national company and are working on an image processing project. Your boss has assigned you a task to determine the area of a black shape inside a rectangular image of dimensions <b>N x M</b>. The black shape may be either square, or a rectangle and of any valid dimension aligned along the axes. It is guaranteed that there is only one such shape present inside the image. The image is a vivid colorful scenery with the black shape pasted on it.</p>
+
+<p>You are given the coordinates of the center point of the black shape inside the image.</p>
+
+<p>Asking many doubts may get you fired from the job, so to be on the safe-side you may ask your boss at most <b>Q</b> queries. In each query, you provide your boss with <b>i</b> and <b>j</b> - the coordinates of the pixel present at <b>x<sub>i</sub></b> column and <b>y<sub>i</sub></b> row. The boss responds with the RGB values of the queried pixel.</p>
+<p>We are following the Cartesian coordinate system here where our coordinates are in the form (x,y) in the Quadrant-1 of Cartesian plane, i.e. x = y = non-negative integers  </p>
+
+<p>Your job is to determine the coordinates of the top-left corner, coordinates of bottom-right corner and what kind of shape it is.</p>
+
+<p><b>Note:</b> If the shape is a square, you can't use the logic that every square is a rectangle and output rectangle for every case, if the shape is a square -  you must output the shape name as square only.</p>
+
+<h3>Interaction</h3>
+<ul>
+<li>First, your program should read a line containing a single integer ― the number of test cases <b>T</b>. The description of interaction for <b>T</b> test cases follows.</li>
+
+<li>Read the first line of each test case that contains two space-separated integers <b>N</b> and <b>M</b> denoting number of rows and columns respectively</li>
+
+<li>Read the second line containing two space-separated integers <b>x</b> and <b>y</b> denoting the coordinates of the center of the black shape inside the image</li>
+
+<li>For each test case, you may ask at most <b>Q</b> queries. </li>
+
+<li>To ask a query, print a line containing the character 'Q' and two space-separated integers 
+<b>i</b> and <b>j</b> denoting the coordinates of the pixel you want RBG values for.</li>
+
+<li>You would get three space separated values represent red, green, and blue (RBG) value of the color or a negative integer if you have exceeded the limit on the number of queries, the coordinates you printed are invalid or some other error occurred.</li>
+
+<li>When you determine the area and the type of shape, you should print a line containing the character 'A' followed by the <b>x<sub>top-left</sub></b> <b>y<sub>top-left</sub></b> <b>x<sub>bottom-right</sub></b> <b>y<sub>bottom-right</sub></b> - the coordinates of the top-left corner and bottom-right corner of the black shape respectively and the type of shape (Output "rectangle" if the shape found is rectangle or "square" if it is a square)</li>
+</ul>
+
+<p>
+Note that when you read a negative integer, you should immediately terminate your program to receive a Wrong Answer verdict; otherwise, you may receive any verdict. Don't forget to flush the output after printing each line!
+</p>
+
+<h3>Constraints</h3>
+<ul>
+<li>The dimensions of the black shape are odd integers only</li>
+</ul>
+
+<h3>Subtasks</h3>
+<b>Subtask #1 (30 points)</b>
+<ul>
+<li><b>1</b> ≤ <b>T</b> ≤ <b>200</b></li>
+<li><b>1</b> ≤ <b>N, M</b> ≤ <b>500</b></li>
+<li><b>Q</b> = 250000
+</ul>
+
+<b>Subtask #2 (70 points)</b>
+<ul>
+<li><b>1</b> ≤ <b>T</b> ≤ <b>100</b></li>
+<li><b>1</b> ≤ <b>N, M</b> ≤ <b>10<sup>18</sup></b></li>
+<li><b>Q</b> = 125
+</ul>
+
+<h3>Example</h3>
+<pre>
+You             Grader  
+                    1
+                    4 4  
+                    1 1
+Q 0 0
+                    255 255 255                
+Q 0 1
+                    255 255 255
+Q 0 2
+                    255 255 255
+Q 0 3
+                    255 255 0
+Q 1 0
+                    255 255 255
+Q 1 1
+                    255 255 255
+Q 1 2
+                    255 255 255
+Q 1 3
+                    255 0 0
+Q 2 0
+                    255 255 255
+Q 2 1
+                    255 255 255
+Q 2 2
+                    255 255 255
+Q 2 3
+                    0 0 0
+Q 3 0
+                    255 255 0
+Q 3 1
+                    255 255 0
+Q 3 2
+                    0 0 0
+Q 3 3
+                    255 0 0
+
+A 0 2 2 0 square
+</pre>  
+<img src="https://i.imgur.com/aOM0VtG.jpg">
