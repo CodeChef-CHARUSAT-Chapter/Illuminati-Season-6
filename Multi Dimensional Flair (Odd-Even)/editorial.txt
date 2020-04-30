@@ -1,0 +1,59 @@
+# PROBLEM LINK:
+
+[Practice](https://www.codechef.com/problems/MDFL)
+[Contest](https://www.codechef.com/IMTI2020/problems/MDFL)
+
+
+*Author:* [Kushan Mehta](https://www.codechef.com/users/kushan02)
+
+# DIFFICULTY:
+Cakewalk
+
+# PREREQUISITES:
+None
+
+# PROBLEM:
+You are given *N* points in *M* dimensional space. All the points are to be connected to form a Hamiltonian Cycle.
+Your task is to determine if number of edges of this graph formed and the number of edges of an octagon are co-prime. 
+
+# QUICK EXPLANATION:
+The solution simply depends on whether *N* is even or odd. If *N* is odd then it the answer would be "YES", if *N* is even then the answer will be "NO".
+
+# EXPLANATION:
+On observing carefully we can see that it doesn't matter what the dimensions of the problem space are, we are just concerned with the number of points to make the hamiltonian cycle.
+
+It can be proved that you can easily form a Hamiltonian cycle if you are given *N* points, i.e. you should cover all the vertices present only once, so this would form a closed figure with *N* sides (as N >= 3).
+e.g. if there are 4 points - square (4 edges) is formed, 5 - pentagon, 6 - hexagon and so on. 
+It may be argued that what if the order we connect the points in doesnt form a convex graph. Well, it doesn't matter as long as you form the graph as we are concerned only with the number of edges the graph has. So irrespective of the way in which the *N* points are connected, the graph would always have *N* edges
+
+Now, we need to determine if number of edges of this graph formed and the number of edges of an octagon are co-prime.
+We know that the number of edges in an octagon is 8.
+We can use the concept of Greatest Common Divisor to find if two numbers are co-primes.
+So one approach can be to add a condition that
+if gcd(n, 8) == 1 -> Yes
+
+But on carefully observing the number 8, and thinking about 8's prime factorization, we find that the number 8 can be represented as 2^3. Hence, if 2 is a factor of any number *N*, then gcd(N, 8) will never be one.
+By this observation, we can conclude the fact that if *N* is even then it would be never be co-prime with 8, and hence the answer would be "NO", and an odd number can never have 2 as its factor, so if *N* is odd the answer will always be "YES".
+
+# SOLUTIONS:
+
+[details="Setter's Solution"]
+	from sys import stdin, stdout
+
+	t = stdin.readline()
+	t = int(t)
+
+	while t:
+		n, m = map(int, stdin.readline().split())
+		print(n, m)
+		for i in range(n):
+			stdin.readline()
+
+		if n & 1:
+			stdout.write("YES")
+		else:
+			stdout.write("NO")
+
+		stdout.write("\n")
+		t -= 1
+[/details]
