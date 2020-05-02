@@ -1,0 +1,211 @@
+# PROBLEM LINK:
+
+[Practice](https://www.codechef.com/problems/VDPT)
+[Contest](https://www.codechef.com/IMTI2020/problems/VDPT)
+
+
+*Author:* [Kushan Mehta](https://www.codechef.com/users/kushan02)
+
+# DIFFICULTY:
+Easy
+
+# PREREQUISITES:
+Binary Search
+
+# PROBLEM:
+You are given a *N* x *M* image as a grid of pixels and the centre of a black shape present inside the image. The shape is either a square or a rectangle.
+
+You may make **at-most Q queries** providing the coordinates of the pixel as input, and the judge would return you the RGB values of the pixel present at that coordinate.
+
+Your task is to determine the coordinates of the top-left corner and the bottom-right corner of the shape and also if it a rectangle or a square.
+
+*NOTE*: It is also mentioned that in the world depicted in problem, they use a inverted black-white schema. Meaning that you are explicitly told to assume the RGB values of the color black as 255 255 255. (This is merely a distraction and doesn't affect the solution of the question in any way).
+
+# QUICK EXPLANATION:
+You have to **apply binary search** in order to determine the distance of the left edge and the bottom edge of the shape from the X and Y axes respectively. Once you have that determined, it is easy to calculate other coordinates of the shape and also calculate its length and breadth.
+If the length is equal to breadth then, it is a square, otherwise a rectangle.
+
+**Time Complexity of optimal solution**: O( log(m.n) )
+
+# EXPLANATION:
+
+###  Quadratic Solution (Partial points only):
+The first observation which you can make is seeing the **limit on Q** - the maximum number of queries you can make, it is simply not possible to solve the question with a quadratic or a linear naive solution. This should be enough **hint to identify that you need to come up with a solution that is logarithmic in nature.**
+
+The first approach that may come to mind is a naive approach, basically, a brute force solution which will yield you a partial score. This approach is very simple. Simply, query each and every point present inside the grid. This will lead to a quadratic solution with time complexity - O(m x n).
+
+For each query, you just check whether the RGB value returned by the judge is 255 255 255 or not (here we are explicitly told that assume this rgb value for black as the world described in problem uses a inverted white-black schema). This is done simply to distract and confuse people. It doesn't impact the solution in any way.
+
+Once you have all the points which have the RGB value you can simply find out which are the **corner coordinates of the shape**:
+- Least *x* value and maximum *y* value - top-left coordinate. 
+- Maximum *x* value and minimum *y* value - bottom-right coordinate
+- Least *x* value and least *y* value - bottom-left coordinate
+- Maximum *x* value and maximum *y* value - top-right coordinate
+
+Now, you can simply use the distance formula to calculate the length and breadth of the shape. Based on this you can find out if the shape is square or a rectangle.
+
+### Linear Solution (Partial points only)
+Another improved approach over this is a linear time solution with a time complexity of O(m + n) where you can query points on the line parallel to *X* axis passing through the center and the line parallel to the *Y* axis passing through the center.
+
+The rest all steps of determining the coordinates and the length remain the same.
+But, this solution still won't suffice and you would exceed the limit of maximum queries easily.
+
+One observation to make in the question was that it was given that the **dimensions of the shape are always odd numbers**. This was done to ensure that the coordinates of the center points are always integer values. As in case of even dimension the center would have to be a floating value.
+
+So, you can safely use integer values for this problem instead of float.
+(For C++ users, you will need to use *long long int* as M,N <= 10^18)
+
+### Optimal Solution (Full points)
+The most optimal approach that would lead to a full 100 pts is binary search based approach. 
+
+The idea is to somehow apply binary search to determine the distance of the left most edge from the *Y* axis and the distance of the bottom most edge from the *X* axis.
+
+You may, however, choose to find the distance of top and right most edge also.
+Or, you may choose to find which of the borders of the image is the nearest from the center to start querying from there to further optimize it by a very small factor.
+
+The basic idea behind the binary search is to divide the problem into two halves, query the midpoint, and based on the result discard one of the half and repeat the same for the remaining half.
+So by this, we can see how the time complexity of binary search is *O(logN)* as each iteration reduces the problem in half.
+
+We start querying points using binary search using two pointers, say, *left_index* and *right_index* (or *top* and *bottom* index in case when querying parallel to Y axes).
+
+Our *left_index* can be set to the *X* axes as we can imagine that point as the starting point. We set *right_index* as the *x* coordinate of the center point.
+This can be done because we know that image will be mirror to the otherside too. So instead, of querying for both sides you can calculate coordinates of only one side and you can calculate others easily.
+
+With every iteration, you check the midpoint of left and right ends and see if that is a black coordinate:
+- If it happens to be a black coordinate, then we shift our *right_index* to the point just left to the midpoint and also *left_x_coordinate* to be equal to the midpoint.
+This denotes that till the search we have done, the leftmost coordinate that had a black pixel in it was this point.
+
+- We keep doing this until we exhaust the search space, the final value of the leftmost black pixel of the image would thus be present inside *left_x_coordinate*.
+
+- In case the point was not a black pixel, we make the *left_index* equal to just the point right to midpoint. This implies that we are certain that in the searches we have already made, we don't have a black pixel left to the *left_index*, and thus, we can discard all points left to *left_index* with certainty.
+
+The terminating condition for this iteration will be the standard binary search break condition that *left_index* should always remain less than or equal to *right_index*, or else we have exhausted the search space when the pointers cross each other.
+
+Repeat similar procedure determining the *bottom_y* coordinates too.
+
+Then, we can calculate other remaining two coordinates and the dimensions of the image using this formula:
+    
+    top_left_y = center_y + (center_y - bottom_right_y)
+    bottom_right_x = center_x + (center_x - top_left_x)
+    
+    length = bottom_right_x - top_left_x + 1
+    breadth = top_left_y - bottom_right_y + 1
+    
+At last, we simply need to check if length and breadth are equal, then it is a square, otherwise it is a rectangle.
+
+## Time Complexity
+
+It can be seen that we made two separate binary searches, one for determining the length and other for determining the breadth:
+    
+    Total Complexity = O(logm) + O(logn)
+    
+We also know the property of logarithms:
+    
+    log (m*n) = log(m) + log(n)
+    
+Thus, the time complexity of the problem is **O( log(m.n) )**
+
+# SOLUTIONS:
+
+[details="Setter's Solution"]
+# Naive Solution
+    from sys import stdin, stdout
+    
+    t = stdin.readline()
+    t = int(t)
+    
+    while t:
+        n, m = map(int, stdin.readline().split())
+        x, y = map(int, stdin.readline().split())
+    
+        top_left_x = math.inf
+        top_left_y = -math.inf
+        bottom_right_x = -math.inf
+        bottom_right_y = math.inf
+    
+        for i in range(m):
+            for j in range(n):
+                print("Q {} {}".format(i, j), flush=True)
+                rgb = stdin.readline()[:-1]
+                if rgb == "-1":
+                    exit(0)
+                if rgb == "255 255 255":
+                    top_left_x = min(top_left_x, i)
+                    top_left_y = max(top_left_y, j)
+                    bottom_right_x = max(bottom_right_x, i)
+                    bottom_right_y = min(bottom_right_y, j)
+    
+        length = abs(top_left_x - bottom_right_x) + 1
+        breadth = abs(top_left_y - bottom_right_y) + 1
+    
+        shape_name = "rectangle"
+    
+        if length == breadth:
+            shape_name = "square"
+    
+        print("A {} {} {} {} {}".format(top_left_x, top_left_y, bottom_right_x, bottom_right_y, shape_name), flush=True)
+    
+        t -= 1
+
+# Optimal Solution (Binary Search)
+    from sys import stdin, stdout
+    import math
+    import random
+    
+    t = stdin.readline()
+    t = int(t)
+    
+    while t:
+        n, m = map(int, stdin.readline().split())
+        center_x, center_y = map(int, stdin.readline().split())
+    
+        top_left_x = 0
+        top_left_y = 0
+        bottom_right_x = 0
+        bottom_right_y = 0
+    
+        # Binary search for length (0,m)
+        left_index = 0
+        right_index = center_x  # x coordinate of the center
+        while left_index <= right_index:
+            mid = left_index + (right_index - left_index) // 2
+            print("Q {} {}".format(mid, center_y), flush=True)
+            rgb = stdin.readline()[:-1]
+            if rgb == "-1":
+                exit(0)
+            if rgb == "255 255 255":
+                right_index = mid - 1
+                top_left_x = mid
+            else:
+                left_index = mid + 1
+    
+        # Binary search for width (0,n)
+    	bottom_index = 0
+        top_index = center_y
+        while bottom_index <= top_index:
+            mid = bottom_index + (top_index - bottom_index) // 2
+            print("Q {} {}".format(center_x, mid), flush=True)
+            rgb = stdin.readline()[:-1]
+            if rgb == "-1":
+                exit(0)
+            if rgb == "255 255 255":
+                top_index = mid - 1
+                bottom_right_y = mid
+            else:
+                bottom_index = mid + 1
+    
+        top_left_y = center_y + (center_y - bottom_right_y)
+        bottom_right_x = center_x + (center_x - top_left_x)
+    
+        length = abs(top_left_x - bottom_right_x) + 1
+        breadth = abs(top_left_y - bottom_right_y) + 1
+    
+        shape_name = "rectangle"
+    
+        if length == breadth:
+            shape_name = "square"
+    
+        print("A {} {} {} {} {}".format(top_left_x, top_left_y, bottom_right_x, bottom_right_y, shape_name), flush=True)
+    
+        t -= 1
+[/details]
