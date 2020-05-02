@@ -13,27 +13,63 @@ Cakewalk
 None
 
 # PROBLEM:
-You are given *N* points in *M* dimensional space. All the points are to be connected to form a Hamiltonian Cycle.
+You are given **N** points in **M** dimensional space. All the points are to be **connected to form a Hamiltonian Cycle.**
+
 Your task is to determine if number of edges of this graph formed and the number of edges of an octagon are co-prime. 
 
 # QUICK EXPLANATION:
-The solution simply depends on whether *N* is even or odd. If *N* is odd then it the answer would be "YES", if *N* is even then the answer will be "NO".
+The solution simply depends on whether **N is even or odd**. 
+
+If *N* is odd then it the answer would be "YES", else if *N* is even then the answer will be "NO".
+
+**Time Complexity**: O(1)
 
 # EXPLANATION:
-On observing carefully we can see that it doesn't matter what the dimensions of the problem space are, we are just concerned with the number of points to make the hamiltonian cycle.
 
-It can be proved that you can easily form a Hamiltonian cycle if you are given *N* points, i.e. you should cover all the vertices present only once, so this would form a closed figure with *N* sides (as N >= 3).
-e.g. if there are 4 points - square (4 edges) is formed, 5 - pentagon, 6 - hexagon and so on. 
-It may be argued that what if the order we connect the points in doesnt form a convex graph. Well, it doesn't matter as long as you form the graph as we are concerned only with the number of edges the graph has. So irrespective of the way in which the *N* points are connected, the graph would always have *N* edges
+On observing carefully, we can see that it **doesn't matter what the dimensions of the problem space are**, we are just **concerned with the number of points** to make the Hamiltonian cycle.
+
+The only thing we need to be careful is while taking inputs. We know that a point in 2D is represented by 2 points - (x, y). Similarly a point in 3D is represented by 3 points - (x, y, z).
+
+In the same way, a point in **M**D would be represented by a tuple of M points.
+So, we need to read M coordinates for each of the **N** points specified in the problem. 
+
+For those familiar with graph theory, this problem would have become a very difficult question if you would have been already given edges between the points - giving a already formed graph to work with (the graph may have then been much more complex) and then, you were to determine if a Hamiltonian Cycle exists.
+
+But, the question gives you the **freedom to connect the points in any manner** you want, to form your own graph.
+
+So, we **always form the simplest graph** (rather a tree, with simply the endpoints connected), that would always lead to Hamiltonian Cycle.
+
+It can be proved that you can easily form a Hamiltonian cycle if you are given **N** points, i.e. you should cover all the vertices present only once, so this would form a closed figure with *N* sides (as N >= 3).
+
+You can read about Hamiltonian Cycles here - [Wikipidea Link](https://en.wikipedia.org/wiki/Hamiltonian_path#Existence_of_Hamiltonian_cycles_in_planar_graphs)
+
+E.g. if there are 4 points - square (4 edges) is formed, 5 points - pentagon, 6 points - hexagon and so on. 
+
+It may be argued that what if the order we connect the points in doesn't form a convex graph. Well, it doesn't matter as long as you form the graph as we are concerned only with the number of edges the graph has. 
+
+So **irrespective of the way in which the N points are connected, the graph we form, would always have N edges.**
 
 Now, we need to determine if number of edges of this graph formed and the number of edges of an octagon are co-prime.
-We know that the number of edges in an octagon is 8.
-We can use the concept of Greatest Common Divisor to find if two numbers are co-primes.
-So one approach can be to add a condition that
-if gcd(n, 8) == 1 -> Yes
 
-But on carefully observing the number 8, and thinking about 8's prime factorization, we find that the number 8 can be represented as 2^3. Hence, if 2 is a factor of any number *N*, then gcd(N, 8) will never be one.
-By this observation, we can conclude the fact that if *N* is even then it would be never be co-prime with 8, and hence the answer would be "NO", and an odd number can never have 2 as its factor, so if *N* is odd the answer will always be "YES".
+We know that the number of edges in an octagon is 8.
+
+We can use the concept of Greatest Common Divisor (GCD) to find if two numbers are co-primes.
+
+So one approach can be to add a condition that:
+    
+    if gcd(n, 8) == 1:
+         Yes
+
+But on carefully observing the number 8, and thinking about 8's prime factorization, we find that the number 8 can be represented as 2^3. 
+
+Hence, if 2 is a factor of any number *N*, then gcd(N, 8) will never be one.
+
+By this observation, we can conclude the fact that **if N is even then, it would be never be co-prime with 8**, and hence the answer would be "NO", and an odd number can never have 2 as its factor, so if *N* is odd the answer will always be "YES".
+
+## Time Complexity
+The time complexity of this problem is constant time, since we are only checking if **N** is even or odd.
+
+**Time Complexity = O(1)**
 
 # SOLUTIONS:
 
